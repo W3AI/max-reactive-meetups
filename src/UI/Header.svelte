@@ -21,5 +21,5 @@
 </style>
 
 <header>
-    <h1>JoinUs</h1>
+    <h1>Servus Canada</h1>
 </header>
