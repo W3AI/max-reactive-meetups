@@ -9,10 +9,10 @@
     let description = '';
     let imageUrl = '';
 
-  const meetups = [
+  let meetups = [
     {
       id: "m1",
-      title: "Coding Smart Apps",
+      title: "Smart Apps with Svelte",
       subtitle: "Learn smart web coding in 2 hours",
       description:
         "In this meetup, experts will teach you how to code for the smart web!",
