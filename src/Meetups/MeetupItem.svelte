@@ -7,6 +7,10 @@
         <img src="" alt="" />
     </div>
     <div class="content">
-    
+        <p></p>
     </div>
+    <footer>
+        <button>Show Details</button>
+        <button>Favorite</button>
+    </footer>
 </article>
