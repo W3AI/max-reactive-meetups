@@ -14,12 +14,12 @@
   let meetups = [
     {
       id: "m1",
-      title: "Smart Apps with Svelte",
+      title: "Smart Apps with SvelteJS",
       subtitle: "Learn smart web coding in 2 hours",
       description:
         "In this meetup, experts will teach you how to code for the smart web!",
       imageUrl: "https://venturebeat.com/wp-content/uploads/2015/11/coding.jpg",
-      address: "247 Nerd Road, 36500 New York",
+      address: "247 Nerd Road, 365-ADHD NYork",
       contactEmail: "innovate@w3ai.net"
     },
     {
@@ -29,7 +29,7 @@
       description: "We will simply swim some rounds!",
       imageUrl:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Natacio.jpg/220px-Natacio.jpg",
-      address: "247 Nerd Road, 36500 New York",
+      address: "247 Nerd Road, 36500 North York",
       contactEmail: "swim@w3ai.net"
     }
   ];
