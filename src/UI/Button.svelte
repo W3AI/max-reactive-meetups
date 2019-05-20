@@ -2,6 +2,7 @@
   export let type;
   export let caption;
   export let href;
+  export let mode;
 </script>
 
 <style>
@@ -85,5 +86,5 @@
 {#if href}
   <a {href}>{caption}</a>
 {:else}
-  <button {type}>{caption}</button>
+  <button class="{mode}" {type}>{caption}</button>
 {/if}
