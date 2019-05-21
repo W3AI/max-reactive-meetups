@@ -15,7 +15,7 @@
     {
       id: "m1",
       title: "Smart Apps with SvelteJS",
-      subtitle: "Learn smart web coding in 2 hours",
+      subtitle: "Learn smart coding in 2 hours",
       description:
         "In this meetup, experts will teach you how to code for the smart web!",
       imageUrl: "https://venturebeat.com/wp-content/uploads/2015/11/coding.jpg",
