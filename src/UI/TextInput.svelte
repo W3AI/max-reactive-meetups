@@ -1,10 +1,10 @@
 <script>
-  export let controlType; // input or textarea types
+  export let controlType = null; // input or textarea types
   export let id;
   export let label;
-  export let rows;
+  export let rows = null;
   export let value;
-  export let type;
+  export let type = 'text';
 </script>
 
 <style>
