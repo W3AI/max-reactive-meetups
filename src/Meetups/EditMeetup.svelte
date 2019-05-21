@@ -28,9 +28,7 @@
 
 <style>
   form {
-    width: 30rem;
-    max-width: 90%;
-    margin: auto;
+    width: 100%;
   }
 </style>
 
@@ -68,6 +66,6 @@
       controlType="textarea"
       value={description}
       on:input={event => (description = event.target.value)} />
-    <Button type="submit">Save</Button>
+    <!-- <Button type="submit">Save</Button> -->
   </form>
 </Modal>
