@@ -99,6 +99,6 @@
       on:click={() => dispatch('togglefavorite', id)}>
       {isFav ? 'Unfavorite' : 'Favorite'}
       </Button>
-    <Button type="button">Show Details</Button>
+    <Button type="button">Details</Button>
   </footer>
 </article>

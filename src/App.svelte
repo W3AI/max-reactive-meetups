@@ -13,7 +13,7 @@
       description:
         "In this meetup, experts will teach you how to code for the smart web!",
       imageUrl: "https://venturebeat.com/wp-content/uploads/2015/11/coding.jpg",
-      address: "247 Nerd Road, 365-ADHD NYork",
+      address: "247 Nerd Road, 24360 North York",
       contactEmail: "innovate@w3ai.net",
       isFavorite: false
     },
@@ -24,7 +24,7 @@
       description: "We will simply swim some rounds!",
       imageUrl:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Natacio.jpg/220px-Natacio.jpg",
-      address: "247 Nerd Road, 36500 North York",
+      address: "314 Nerd Road, 36500 North York",
       contactEmail: "swim@w3ai.net",
       isFavorite: false
     }
