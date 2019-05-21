@@ -20,7 +20,8 @@
         "In this meetup, experts will teach you how to code for the smart web!",
       imageUrl: "https://venturebeat.com/wp-content/uploads/2015/11/coding.jpg",
       address: "247 Nerd Road, 365-ADHD NYork",
-      contactEmail: "innovate@w3ai.net"
+      contactEmail: "innovate@w3ai.net",
+      isFavorite: false
     },
     {
       id: "m2",
@@ -30,7 +31,8 @@
       imageUrl:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Natacio.jpg/220px-Natacio.jpg",
       address: "247 Nerd Road, 36500 North York",
-      contactEmail: "swim@w3ai.net"
+      contactEmail: "swim@w3ai.net",
+      isFavorite: false
     }
   ];
 
@@ -47,6 +49,16 @@
 
     // meetups.push(newMeetup);    // DOES NOT WORK IN SVELTE - NO '=' SIGN
     meetups = [newMeetup, ...meetups];
+  }
+
+  function toggleFavorite(event) {
+      const id = event.detail;
+      const updatedMeetup = { ...meetups.find(m => m.id === id) }; // returns the meetup obj with id
+      updatedMeetup.isFavorite = !updatedMeetup.isFavorite; // toggle with ! operator
+      const meetupIndex = meetups.findIndex(m => m.id === id);
+      const updatedMeetups = [...meetups];
+      updatedMeetups[meetupIndex] = updatedMeetup;
+      meetups = updatedMeetups;
   }
 </script>
 
@@ -100,5 +112,5 @@
       on:input={event => (description = event.target.value)} />
     <Button type="submit" caption="Save" />
   </form>
-  <MeetupGrid {meetups} />
+  <MeetupGrid {meetups} on:togglefavorite="{toggleFavorite}" />
 </main>
