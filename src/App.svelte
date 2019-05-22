@@ -1,34 +1,12 @@
 <script>
+    import meetups from './Meetups/meetups-store.js';
   import Header from "./UI/Header.svelte";
   import MeetupGrid from "./Meetups/MeetupGrid.svelte";
   import TextInput from "./UI/TextInput.svelte";
   import Button from "./UI/Button.svelte";
   import EditMeetup from "./Meetups/EditMeetup.svelte";
 
-  let meetups = [
-    {
-      id: "m1",
-      title: "Smart Apps with SvelteJS",
-      subtitle: "Learn smart coding in 2 hours",
-      description:
-        "In this meetup, experts will teach you how to code for the smart web!",
-      imageUrl: "https://venturebeat.com/wp-content/uploads/2015/11/coding.jpg",
-      address: "247 Nerd Road, 24360 North York",
-      contactEmail: "innovate@w3ai.net",
-      isFavorite: false
-    },
-    {
-      id: "m2",
-      title: "Swim Together",
-      subtitle: "Let's go for some swiming",
-      description: "We will simply swim some rounds!",
-      imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Natacio.jpg/220px-Natacio.jpg",
-      address: "314 Nerd Road, 36500 North York",
-      contactEmail: "swim@w3ai.net",
-      isFavorite: false
-    }
-  ];
+  // let meetups = ;
 
   let editMode;
 
@@ -82,5 +60,5 @@
   {#if editMode === 'add'}
     <EditMeetup on:save="{addMeetup}" on:cancel={cancelEdit}/>
   {/if}
-  <MeetupGrid {meetups} on:togglefavorite={toggleFavorite} />
+  <MeetupGrid meetups={$meetups} on:togglefavorite={toggleFavorite} />
 </main>
