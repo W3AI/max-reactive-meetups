@@ -7,9 +7,9 @@
   import Modal from "../UI/Modal.svelte";
   import { isEmpty, isValidEmail } from "../helpers/validation.js";
 
-  let title = "Serviceable";
+  let title = "eg: Serviceable";
   let subtitle = "share your services worldwide";
-  let address = "365 Service Avenue";
+  let address = "365 Service Avenue, New Haven Tech";
   let email = "service@w3ai.net";
   let description = "your skills in web format";
   let imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg/800px-McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg";
