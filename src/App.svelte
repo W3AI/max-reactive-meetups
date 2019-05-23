@@ -1,5 +1,5 @@
 <script>
-    import meetups from './Meetups/meetups-store.js';
+  import meetups from "./Meetups/meetups-store.js";
   import Header from "./UI/Header.svelte";
   import MeetupGrid from "./Meetups/MeetupGrid.svelte";
   import TextInput from "./UI/TextInput.svelte";
@@ -11,33 +11,16 @@
   let editMode;
 
   function addMeetup(event) {
-    const newMeetup = {
-      id: Math.random().toString(),
-      title: event.detail.title,
-      subtitle: event.detail.subtitle,
-      description: event.detail.description,
-      imageUrl: event.detail.imageUrl,
-      contactEmail: event.detail.email,
-      address: event.detail.address
-    };
-
-    // meetups.push(newMeetup);    // DOES NOT WORK IN SVELTE - NO '=' SIGN
-    meetups = [newMeetup, ...meetups];
     editMode = null;
   }
 
   function cancelEdit() {
-      editMode = null;
+    editMode = null;
   }
 
   function toggleFavorite(event) {
     const id = event.detail;
-    const updatedMeetup = { ...meetups.find(m => m.id === id) }; // returns the meetup obj with id
-    updatedMeetup.isFavorite = !updatedMeetup.isFavorite; // toggle with ! operator
-    const meetupIndex = meetups.findIndex(m => m.id === id);
-    const updatedMeetups = [...meetups];
-    updatedMeetups[meetupIndex] = updatedMeetup;
-    meetups = updatedMeetups;
+    meetups.toggleFavorite(id);
   }
 </script>
 
@@ -47,18 +30,18 @@
   }
 
   .meetup-controls {
-      margin: 1rem;
+    margin: 1rem;
   }
 </style>
 
 <Header />
 
 <main>
-<div class="meetup-controls">
-  <Button on:click={() => (editMode = 'add')}>Add Service</Button>
-</div>
+  <div class="meetup-controls">
+    <Button on:click={() => (editMode = 'add')}>Add Service</Button>
+  </div>
   {#if editMode === 'add'}
-    <EditMeetup on:save="{addMeetup}" on:cancel={cancelEdit}/>
+    <EditMeetup on:save={addMeetup} on:cancel={cancelEdit} />
   {/if}
   <MeetupGrid meetups={$meetups} on:togglefavorite={toggleFavorite} />
 </main>

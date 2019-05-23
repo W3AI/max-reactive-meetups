@@ -1,4 +1,5 @@
 <script>
+    import meetups from './meetups-store.js';
   import { createEventDispatcher } from "svelte";
 
   import TextInput from "../UI/TextInput.svelte";
@@ -6,12 +7,12 @@
   import Modal from "../UI/Modal.svelte";
   import { isEmpty, isValidEmail } from "../helpers/validation.js";
 
-  let title = "";
-  let subtitle = "";
-  let address = "";
-  let email = "";
-  let description = "";
-  let imageUrl = "";
+  let title = "Serviceable";
+  let subtitle = "share your services worldwide";
+  let address = "365 Service Avenue";
+  let email = "service@w3ai.net";
+  let description = "your skills in web format";
+  let imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg/800px-McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg";
 
   const dispatch = createEventDispatcher();
 
@@ -30,14 +31,18 @@
     emailValid;
 
   function submitForm() {
-    dispatch("save", {
+          const meetupData = {
       title: title,
       subtitle: subtitle,
-      address: address,
-      email: email,
       description: description,
-      imageUrl: imageUrl
-    });
+      imageUrl: imageUrl,
+      contactEmail: email,
+      address: address
+    };
+
+    // meetups.push(newMeetup);    // DOES NOT WORK IN SVELTE - NO '=' SIGN
+    meetups.addMeetup(meetupData);
+    dispatch("save");
   }
 
   function cancel() {
