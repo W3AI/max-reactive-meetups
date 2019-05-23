@@ -78,7 +78,7 @@
   }
 </style>
 
-<Modal title="Edit Meetup Data" on:cancel>
+<Modal title="Edit Service Data" on:cancel>
   <form on:submit|preventDefault={submitForm}>
     <TextInput
       id="title"
