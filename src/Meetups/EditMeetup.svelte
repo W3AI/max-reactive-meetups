@@ -1,5 +1,5 @@
 <script>
-    import meetups from './meetups-store.js';
+  import meetups from "./meetups-store.js";
   import { createEventDispatcher } from "svelte";
 
   import TextInput from "../UI/TextInput.svelte";
@@ -7,12 +7,29 @@
   import Modal from "../UI/Modal.svelte";
   import { isEmpty, isValidEmail } from "../helpers/validation.js";
 
+  export let id = null;
+
   let title = "eg: Serviceable";
   let subtitle = "share your services worldwide";
   let address = "365 Service Avenue, New Haven Tech";
   let email = "service@w3ai.net";
   let description = "your skills in web format";
-  let imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg/800px-McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg";
+  let imageUrl =
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg/800px-McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg";
+
+  if (id) {
+    const unsubscribe = meetups.subscribe(items => {
+      const selectedMeetup = items.find(i => i.id === id);
+      title = selectedMeetup.title;
+      subtitle = selectedMeetup.subtitle;
+      address = selectedMeetup.address;
+      email = selectedMeetup.contactEmail;
+      description = selectedMeetup.description;
+      imageUrl = selectedMeetup.imageUrl;
+    });
+
+    unsubscribe();
+  }
 
   const dispatch = createEventDispatcher();
 
@@ -31,7 +48,7 @@
     emailValid;
 
   function submitForm() {
-          const meetupData = {
+    const meetupData = {
       title: title,
       subtitle: subtitle,
       description: description,
@@ -41,7 +58,12 @@
     };
 
     // meetups.push(newMeetup);    // DOES NOT WORK IN SVELTE - NO '=' SIGN
-    meetups.addMeetup(meetupData);
+    if (id) {
+        meetups.updateMeetup(id, meetupData);
+    } else {
+        meetups.addMeetup(meetupData);
+    }
+    
     dispatch("save");
   }
 
@@ -105,6 +127,8 @@
   </form>
   <div slot="footer">
     <Button type="button" mode="outline" on:click={cancel}>Cancel</Button>
-    <Button type="button" on:click={submitForm} disabled={!formIsValid} >Save</Button>
+    <Button type="button" on:click={submitForm} disabled={!formIsValid}>
+      Save
+    </Button>
   </div>
 </Modal>
