@@ -59,18 +59,38 @@
 
     // meetups.push(newMeetup);    // DOES NOT WORK IN SVELTE - NO '=' SIGN
     if (id) {
-        meetups.updateMeetup(id, meetupData);
+      meetups.updateMeetup(id, meetupData);
     } else {
-        meetups.addMeetup(meetupData);
+      fetch("https://ai-economy.firebaseio.com/meetups.json", {
+        method: "POST",
+        body: JSON.stringify({ ...meetupData, isFavorite: false }),
+        headers: { "Content-Type": "application/json" }
+      })
+        .then(res => {
+          if (!res.ok) {
+            throw new Error("An error occurred, please try again!");
+          }
+          return res.json();
+        })
+        .then(data => {
+          meetups.addMeetup({
+            ...meetupData,
+            isFavorite: false,
+            id: data.name
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
-    
+
     dispatch("save");
   }
 
-    function deleteMeetup() {
-        meetups.removeMeetup(id);
-        dispatch("save");
-    }
+  function deleteMeetup() {
+    meetups.removeMeetup(id);
+    dispatch("save");
+  }
 
   function cancel() {
     dispatch("cancel");
@@ -135,8 +155,8 @@
     <Button type="button" on:click={submitForm} disabled={!formIsValid}>
       Save
     </Button>
-        {#if id}
-            <Button type="button" on:click={deleteMeetup} >Delete</Button>
-        {/if}
+    {#if id}
+      <Button type="button" on:click={deleteMeetup}>Delete</Button>
+    {/if}
   </div>
 </Modal>
