@@ -3,7 +3,7 @@ import { writable } from 'svelte/store';
 const meetups = writable([
     {
         id: "m1",
-        title: "Smart Apps with SvelteJS",
+        title: "Smart Services",
         subtitle: "Learn to script in 2 hours",
         description:
             "In this meetup, experts will teach you how to code for the smart web!",
