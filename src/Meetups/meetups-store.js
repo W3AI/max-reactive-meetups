@@ -1,32 +1,12 @@
 import { writable } from 'svelte/store';
 
-const meetups = writable([
-    {
-        id: "m1",
-        title: "Smart Services",
-        subtitle: "Learn to script in 2 hours",
-        description:
-            "In this meetup, experts will teach you how to code for the smart web!",
-        imageUrl: "https://venturebeat.com/wp-content/uploads/2015/11/coding.jpg",
-        address: "247 Nerd Road, 24360 North York",
-        contactEmail: "innovate@w3ai.net",
-        isFavorite: false
-    },
-    {
-        id: "m2",
-        title: "Swim Together",
-        subtitle: "Let's go for some swiming",
-        description: "We will simply swim some rounds!",
-        imageUrl:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Natacio.jpg/220px-Natacio.jpg",
-        address: "314 Nerd Road, 36500 North York",
-        contactEmail: "swim@w3ai.net",
-        isFavorite: false
-    }
-]);
+const meetups = writable([]);
 
 const customMeetupsStore = {
     subscribe: meetups.subscribe,
+    setMeetups: (meetupArray) => {
+        meetups.set(meetupArray);
+    },
     addMeetup: (meetupData) => {
         const newMeetup = {
             ...meetupData

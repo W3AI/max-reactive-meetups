@@ -12,6 +12,27 @@
   let page = "overview";
   let pageData = {};
 
+  fetch("https://ai-economy.firebaseio.com/meetups.json")
+    .then(res => {
+      if (!res.ok) {
+        throw new error("Fetching meetups failed, please try again later!");
+      }
+      return res.json();
+    })
+    .then(data => {
+      const loadedMeetups = [];
+      for (const key in data) {
+        loadedMeetups.push({
+          ...data[key],
+          id: key
+        });
+      }
+      meetups.setMeetups(loadedMeetups);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+
   function savedMeetup(event) {
     editMode = null;
     editedId = null;
@@ -55,7 +76,9 @@
       meetups={$meetups}
       on:showdetails={showDetails}
       on:edit={startEdit}
-      on:add={() => {editMode = 'edit'} } />
+      on:add={() => {
+        editMode = 'edit';
+      }} />
   {:else}
     <MeetupDetail id={pageData.id} on:close={closeDetails} />
   {/if}
