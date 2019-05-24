@@ -11,6 +11,7 @@
   let editedId;
   let page = "overview";
   let pageData = {};
+  let isLoading = true;
 
   fetch("https://ai-economy.firebaseio.com/meetups.json")
     .then(res => {
@@ -27,9 +28,11 @@
           id: key
         });
       }
+      isLoading = false;
       meetups.setMeetups(loadedMeetups);
     })
     .catch(err => {
+        isLoading = false;
       console.log(err);
     });
 
@@ -72,6 +75,9 @@
     {#if editMode === 'edit'}
       <EditMeetup id={editedId} on:save={savedMeetup} on:cancel={cancelEdit} />
     {/if}
+    {#if isLoading}
+        <p>Loading...</p>
+    {:else}
     <MeetupGrid
       meetups={$meetups}
       on:showdetails={showDetails}
@@ -79,6 +85,7 @@
       on:add={() => {
         editMode = 'edit';
       }} />
+      {/if}
   {:else}
     <MeetupDetail id={pageData.id} on:close={closeDetails} />
   {/if}
