@@ -57,9 +57,22 @@
       address: address
     };
 
-    // meetups.push(newMeetup);    // DOES NOT WORK IN SVELTE - NO '=' SIGN
+    // meetups.push(newMeetup);    // DOES NOT WORK IN SVELTE
     if (id) {
-      meetups.updateMeetup(id, meetupData);
+      fetch(`https://ai-economy.firebaseio.com/meetups/${id}.json`, {
+        method: "PATCH",
+        body: JSON.stringify(meetupData),
+        headers: { "Content-Type": "application/json" }
+      })
+        .then(res => {
+          if (!res.ok) {
+            throw new Error("An error occurred, please try again!");
+          }
+          meetups.updateMeetup(id, meetupData); // update in local store after db
+        })
+        .catch(err => {
+          console.log();
+        });
     } else {
       fetch("https://ai-economy.firebaseio.com/meetups.json", {
         method: "POST",
