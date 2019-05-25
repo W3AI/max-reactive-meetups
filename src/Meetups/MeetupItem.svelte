@@ -16,7 +16,18 @@
   const dispatch = createEventDispatcher();
 
   function toggleFavorite() {
-    meetups.toggleFavorite(id);
+    fetch(`https://ai-economy.firebaseio.com/meetups/${id}.json`, {
+      method: "PATCH",
+      body: JSON.stringify({ isFavorite: !isFav }),
+      headers: { "Content-Type": "application/json" }
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("An error occurred, please try again!");
+        }
+        meetups.toggleFavorite(id);
+      })
+      .catch(err => console.log(err));
   }
 </script>
 
@@ -96,8 +107,9 @@
     <p>{description}</p>
   </div>
   <footer>
-    <Button mode="outline" type="button" on:click={() => dispatch('edit', id)} >
-    Edit</Button>
+    <Button mode="outline" type="button" on:click={() => dispatch('edit', id)}>
+      Edit
+    </Button>
     <Button
       mode="outline"
       color={isFav ? null : 'success'}
