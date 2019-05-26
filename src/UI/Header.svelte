@@ -21,5 +21,5 @@
 </style>
 
 <header>
-    <h1>Servus Toronto</h1>
+    <h1>Progressive Toronto</h1>
 </header>
