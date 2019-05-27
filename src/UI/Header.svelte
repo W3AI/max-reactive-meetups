@@ -21,5 +21,5 @@
 </style>
 
 <header>
-    <h1>Progressive Toronto</h1>
+    <h1>AI Jobs</h1>
 </header>

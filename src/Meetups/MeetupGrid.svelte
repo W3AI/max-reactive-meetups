@@ -47,7 +47,8 @@
 <section id="meetup-controls">
   <MeetupFilter on:select={setFilter} />
 
-  <Button on:click={() => dispatch('add')}>Add Service</Button>
+  <Button on:click={() => dispatch('add')}>+Job</Button>
+  <Button on:click={() => dispatch('add')}>+Service</Button>
 </section>
 {#if filteredMeetups.length === 0}
     <p id="no-meetups">No meetups found, you can start adding some.</p>

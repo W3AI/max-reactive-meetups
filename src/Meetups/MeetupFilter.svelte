@@ -58,6 +58,6 @@
         selectedButton = 1;
       dispatch('select', 1);
     }}>
-    Favorites
+    Favs
   </button>
 </div>
