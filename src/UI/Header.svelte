@@ -21,5 +21,5 @@
 </style>
 
 <header>
-    <h1>fair AI jobs</h1>
+    <h1>fair AI</h1>
 </header>
