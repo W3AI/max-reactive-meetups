@@ -9,11 +9,11 @@
 
   export let id = null;
 
-  let title = "eg: Serviceable";
-  let subtitle = "share your services worldwide";
-  let address = "365 Service Avenue, New Haven Tech";
-  let email = "service@w3ai.net";
-  let description = "your skills in web format";
+  let title = "eg: Servant Lead";
+  let subtitle = "Team Coordinator";
+  let address = "12 Servants Ave, New Haven";
+  let email = "servant.team.60@w3ai.net";
+  let description = "Help teams plan projects and schedule services.";
   let imageUrl =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg/800px-McDonald%27s_open_24_hours_banners%2C_Orchard_Road%2C_Singapore_-_20060313.jpg";
 
