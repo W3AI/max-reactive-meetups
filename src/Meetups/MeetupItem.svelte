@@ -127,7 +127,7 @@
         color={isFav ? null : 'success'}
         type="button"
         on:click={toggleFavorite}>
-         {isFav ? 'Unfavorite' : 'Favorite'}
+         {isFav ? 'Fav' : 'Unfav'}
       </Button>
     {/if}
     <Button type="button" on:click={() => dispatch('showdetails', id)}>

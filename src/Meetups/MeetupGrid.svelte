@@ -33,8 +33,14 @@
     justify-content: space-between;
   }
 
+  @media (min-width: 300px) {
+    #meetup-controls {
+      margin: .2rem;
+    }
+  }
+
   #no-meetups {
-      margin: 1rem;
+    margin: 1rem;
   }
 
   @media (min-width: 768px) {
@@ -47,15 +53,16 @@
 <section id="meetup-controls">
   <MeetupFilter on:select={setFilter} />
 
-  <Button on:click={() => dispatch('add')}>+Job</Button>
-  <Button on:click={() => dispatch('add')}>+Service</Button>
+  <Button on:click={() => dispatch('add')}>Projects</Button>
+  <Button on:click={() => dispatch('add')}>Services</Button>
+
 </section>
 {#if filteredMeetups.length === 0}
-    <p id="no-meetups">No meetups found, you can start adding some.</p>
+  <p id="no-meetups">No meetups found, you can start adding some.</p>
 {/if}
 <section id="meetups">
   {#each filteredMeetups as meetup (meetup.id)}
-    <div transition:scale animate:flip={{duration: 300}} >
+    <div transition:scale animate:flip={{ duration: 300 }}>
       <MeetupItem
         id={meetup.id}
         title={meetup.title}

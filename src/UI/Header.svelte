@@ -21,5 +21,5 @@
 </style>
 
 <header>
-    <h1>fair AI</h1>
+    <h1>365 Earth Teams</h1>
 </header>
