@@ -95,6 +95,19 @@
   .content {
     height: 4rem;
   }
+
+  @media (max-width: 375px) {
+    h1 {
+      font-size: 1rem;
+    }
+        h2 {
+      font-size: 0.9rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
 </style>
 
 <article>
@@ -127,7 +140,7 @@
         color={isFav ? null : 'success'}
         type="button"
         on:click={toggleFavorite}>
-         {isFav ? 'Fav' : 'Unfav'}
+         {isFav ? 'Unfav' : 'Fav'}
       </Button>
     {/if}
     <Button type="button" on:click={() => dispatch('showdetails', id)}>

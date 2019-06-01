@@ -125,7 +125,7 @@
   }
 </style>
 
-<Modal title="Edit Service Data" on:cancel>
+<Modal title="Edit Service" on:cancel>
   <form on:submit|preventDefault={submitForm}>
     <TextInput
       id="title"

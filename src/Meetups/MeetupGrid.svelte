@@ -33,14 +33,14 @@
     justify-content: space-between;
   }
 
-  @media (min-width: 300px) {
-    #meetup-controls {
-      margin: .2rem;
-    }
-  }
-
   #no-meetups {
     margin: 1rem;
+  }
+
+  @media (max-width: 330px) {
+    #meetup-controls {
+      margin: .7rem;
+    }
   }
 
   @media (min-width: 768px) {
