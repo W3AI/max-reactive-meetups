@@ -53,7 +53,7 @@
 <section id="meetup-controls">
   <MeetupFilter on:select={setFilter} />
 
-  <Button on:click={() => dispatch('add')}>+Project</Button>
+  <Button on:click={() => dispatch('add')}>+Friends</Button>
   <Button on:click={() => dispatch('add')}>+Service</Button>
 
 </section>
