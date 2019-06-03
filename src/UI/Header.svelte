@@ -15,13 +15,14 @@
   }
 
   h1 {
+      /* font-size: 1.1rem; */
     color: white;
     font-family: "Roboto Slab", serif;
     margin: 0;
   }
 
   p {
-    font-size: 0.5rem;
+    font-size: 0.59rem;
     color: white;
     font-family: "Roboto Slab", sans-serif;
     margin: 0;
@@ -29,6 +30,6 @@
 </style>
 
 <header>
-  <h1>365 Earth Teams</h1>
-  <p>10 million World Leaders for 24 hours. What would you do?</p>
+  <h1>innovation teams</h1>
+  <p>join 10 million innovators on your birthday! or any year day!</p>
 </header>
